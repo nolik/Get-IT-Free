@@ -12,8 +12,8 @@ import java.util.List;
 
 @Service
 public class AdvertService {
-    @Autowired
-    private AdvertRepository advertRepository;
+
+    private final AdvertRepository advertRepository;
 
     //temporary initialization of db
     private static List<Advert> adverts = new ArrayList<>();
@@ -27,6 +27,11 @@ public class AdvertService {
                 "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg"));
     }
 
+    @Autowired
+    public AdvertService(AdvertRepository advertRepository) {
+        this.advertRepository = advertRepository;
+    }
+
     @PostConstruct
     public void init(){
         advertRepository.save(adverts);
@@ -34,6 +39,7 @@ public class AdvertService {
 
 
     public List<Advert> findAllAdvertsFromDB(){
-       return advertRepository.findAll();
+      List<Advert> repositoryAll=  advertRepository.findAll();
+        return repositoryAll;
     }
 }
