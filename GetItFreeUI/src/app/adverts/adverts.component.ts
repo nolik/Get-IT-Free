@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AdvertModel} from '../advert/advert.model';
+import {AdvertModel} from './advert/advert.model';
 
 @Component({
   selector: 'app-advert-list',
-  templateUrl: './advert-list.component.html',
-  styleUrls: ['./advert-list.component.css']
+  templateUrl: './adverts.component.html',
+  styleUrls: ['./adverts.component.css']
 })
 export class AdvertListComponent implements OnInit {
   adverts: AdvertModel[] = [
