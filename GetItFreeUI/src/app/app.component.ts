@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Get It Free portal';
 
-  loadedFeature = 'advert-list';
+  loadedFeature = 'adverts';
 
   onNavigate(feature: string) {
     this.loadedFeature = feature;

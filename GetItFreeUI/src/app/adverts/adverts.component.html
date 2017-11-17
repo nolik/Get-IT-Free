@@ -1,7 +1,8 @@
 <div class="container">
   <app-advert
     *ngFor="let advertEl of adverts"
-    [advert]="advertEl">>
+    [advert]="advertEl"
+    (advertSelector)="onAdvertSelected(advertEl)">
   </app-advert>
 </div>
 
