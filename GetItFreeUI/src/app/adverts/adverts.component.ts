@@ -7,7 +7,7 @@ import {AdvertModel} from './advert/advert.model';
   styleUrls: ['./adverts.component.css']
 })
 export class AdvertsComponent implements OnInit {
-  @Output() selectedAdverts = AdvertModel;
+  @Output() selectedDetailsAdvert = new EventEmitter<AdvertModel>();
 
   adverts: AdvertModel[] = [
     new AdvertModel(1, 'test header', 'test content', new Date, 'https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/' +
@@ -29,6 +29,6 @@ export class AdvertsComponent implements OnInit {
   }
 
   onAdvertSelected(advert: AdvertModel) {
-
+    this.selectedDetailsAdvert.emit(advert);
   }
 }

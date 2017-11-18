@@ -8,7 +8,7 @@ import {AdvertModel} from './advert.model';
 })
 export class AdvertComponent implements OnInit {
   @Input() advert: AdvertModel;
-  @Output() advertSelector = new EventEmitter<AdvertModel>();
+  @Output() advertSelector = new EventEmitter<void>();
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class AdvertComponent implements OnInit {
     this.advert.ordered = true;
   }
 
-  onSelected(advert: AdvertModel) {
-    this.advertSelector.emit(advert);
+  onSelected() {
+    this.advertSelector.emit();
   }
 }
