@@ -1,3 +1,17 @@
-<p>
-  advert-detail works!
-</p>
+
+<div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+  <div class="card">
+    <img class="card-img-top" [src]="advertDetails.imageUrl">
+    <div class="card-block">
+      <h4 class="card-title">{{advertDetails.head}}</h4>
+      <div class="meta">
+        <a href="#">{{advertDetails.id}}</a>
+      </div>
+      <div class="card-text">
+        {{advertDetails.content}}
+      </div>
+    </div>
+  </div>
+  <hr/>
+</div>
+

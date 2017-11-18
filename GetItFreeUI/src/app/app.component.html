@@ -13,7 +13,5 @@
 
 <app-add-advert *ngIf="loadedFeature === 'add-advert'"></app-add-advert>
 
-<app-advert-detail *ngIf="loadedFeature === 'detailAdvert'"></app-advert-detail>
-
-
-
+<app-advert-detail *ngIf="loadedFeature === 'detailAdvert'"
+                   [advertDetails]="(detailAdvert)"></app-advert-detail>
