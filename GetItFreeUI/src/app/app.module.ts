@@ -7,6 +7,7 @@ import { AdvertsComponent } from './adverts/adverts.component';
 import { AddAdvertComponent } from './adverts/add-advert/add-advert.component';
 import { AdvertComponent } from './adverts/advert/advert.component';
 import { AdvertDetailComponent } from './adverts/advert-detail/advert-detail.component';
+import {DropdownDirective} from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AdvertDetailComponent } from './adverts/advert-detail/advert-detail.com
     AdvertsComponent,
     AddAdvertComponent,
     AdvertComponent,
-    AdvertDetailComponent
+    AdvertDetailComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule
