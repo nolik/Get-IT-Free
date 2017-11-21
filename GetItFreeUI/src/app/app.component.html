@@ -9,9 +9,9 @@
 
 <hr/>
 
-<app-adverts (selectedDetailsAdvert)="openDetailAdvert($event)" *ngIf="loadedFeature === 'adverts'"></app-adverts>
+<app-adverts *ngIf="loadedFeature === 'advert-list'"></app-adverts>
 
 <app-add-advert *ngIf="loadedFeature === 'add-advert'"></app-add-advert>
 
-<app-advert-detail *ngIf="loadedFeature === 'detailAdvert'"
+<app-advert-detail *ngIf="loadedFeature === 'advert-detail'"
                    [advertDetails]="(detailAdvert)"></app-advert-detail>

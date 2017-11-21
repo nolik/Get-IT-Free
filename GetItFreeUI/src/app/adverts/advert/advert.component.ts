@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AdvertModel} from './advert.model';
+import {AdvertService} from '../advert.service';
 
 @Component({
   selector: 'app-advert',
@@ -8,18 +9,17 @@ import {AdvertModel} from './advert.model';
 })
 export class AdvertComponent implements OnInit {
   @Input() advert: AdvertModel;
-  @Output() advertSelector = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private advertService: AdvertService) { }
 
   ngOnInit() {
   }
 
-  orderAdvert(advert: AdvertModel) {
+  orderAdvert() {
     this.advert.ordered = true;
   }
 
   onSelected() {
-    this.advertSelector.emit();
+    this.advertService.advertSelected.emit(this.advert);
   }
 }

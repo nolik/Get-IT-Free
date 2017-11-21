@@ -1,6 +1,9 @@
 import {AdvertModel} from './advert/advert.model';
+import {EventEmitter} from '@angular/core';
 
 export class AdvertService {
+  advertSelected = new EventEmitter<AdvertModel>();
+
   private adverts: AdvertModel[] = [
     new AdvertModel(1, 'test header', 'test content', new Date, 'https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/' +
       'stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg', false),

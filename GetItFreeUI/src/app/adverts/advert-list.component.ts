@@ -4,12 +4,10 @@ import {AdvertService} from './advert.service';
 
 @Component({
   selector: 'app-adverts',
-  templateUrl: './adverts.component.html',
-  styleUrls: ['./adverts.component.css'],
-  providers: [AdvertService]
+  templateUrl: './advert-list.component.html',
+  styleUrls: ['./advert-list.component.css']
 })
-export class AdvertsComponent implements OnInit {
-  @Output() selectedDetailsAdvert = new EventEmitter<AdvertModel>();
+export class AdvertListComponent implements OnInit {
 
   adverts: AdvertModel[];
 
@@ -20,7 +18,4 @@ export class AdvertsComponent implements OnInit {
     this.adverts = this.advertService.getAdverts();
   }
 
-  onAdvertSelected(advert: AdvertModel) {
-    this.selectedDetailsAdvert.emit(advert);
-  }
 }

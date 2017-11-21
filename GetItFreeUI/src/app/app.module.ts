@@ -3,17 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { AdvertsComponent } from './adverts/adverts.component';
+import { AdvertListComponent } from './adverts/advert-list.component';
 import { AddAdvertComponent } from './adverts/add-advert/add-advert.component';
 import { AdvertComponent } from './adverts/advert/advert.component';
 import { AdvertDetailComponent } from './adverts/advert-detail/advert-detail.component';
 import {DropdownDirective} from './shared/dropdown.directive';
+import {AdvertService} from './adverts/advert.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AdvertsComponent,
+    AdvertListComponent,
     AddAdvertComponent,
     AdvertComponent,
     AdvertDetailComponent,
@@ -22,7 +23,7 @@ import {DropdownDirective} from './shared/dropdown.directive';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [AdvertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
