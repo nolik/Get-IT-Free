@@ -9,7 +9,7 @@ import {AdvertService} from './adverts/advert.service';
 })
 export class AppComponent implements OnInit{
   detailAdvert: AdvertModel;
-  title = 'Get It Free portal';
+
 
   loadedFeature = 'advert-list';
 

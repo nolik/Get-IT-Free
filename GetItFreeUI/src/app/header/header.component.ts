@@ -7,9 +7,12 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
- @Output() futureSelected = new EventEmitter<string>();
+  @Output() futureSelected = new EventEmitter<string>();
 
-  constructor() { }
+  title = 'Get It Free portal';
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
