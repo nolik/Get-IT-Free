@@ -1,8 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header (futureSelected)="onNavigate($event)"></app-header>
 
-<hr/>
-
 <app-adverts *ngIf="loadedFeature === 'advert-list'"></app-adverts>
 
 <app-add-advert *ngIf="loadedFeature === 'add-advert'"></app-add-advert>
