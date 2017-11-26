@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header (futureSelected)="onNavigate($event)"></app-header>
 
-<app-adverts *ngIf="loadedFeature === 'advert-list'"></app-adverts>
+  <app-header ></app-header>
 
-<app-add-advert *ngIf="loadedFeature === 'add-advert'"></app-add-advert>
-
-<app-advert-detail *ngIf="loadedFeature === 'advert-detail'"
+<!--don't work, need to do it relate to routing!-->
+<app-advert-detail
+  *ngIf="loadedFeature === 'advert-detail'"
                    [advertDetails]="(detailAdvert)"></app-advert-detail>
+<router-outlet></router-outlet>

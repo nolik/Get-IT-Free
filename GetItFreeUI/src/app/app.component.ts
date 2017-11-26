@@ -7,11 +7,11 @@ import {AdvertService} from './adverts/advert.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   detailAdvert: AdvertModel;
 
 
-  loadedFeature = 'advert-list';
+  loadedFeature: string;
 
 
   constructor(private advertService: AdvertService) {
@@ -25,9 +25,5 @@ export class AppComponent implements OnInit{
           this.loadedFeature = 'advert-detail';
         }
       );
-  }
-
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
   }
 }

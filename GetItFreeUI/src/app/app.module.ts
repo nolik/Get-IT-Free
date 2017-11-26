@@ -9,6 +9,14 @@ import { AdvertComponent } from './adverts/advert/advert.component';
 import { AdvertDetailComponent } from './adverts/advert-detail/advert-detail.component';
 import {DropdownDirective} from './shared/dropdown.directive';
 import {AdvertService} from './adverts/advert.service';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: AdvertListComponent },
+  { path: 'advert-list', component: AdvertListComponent },
+  { path: 'add-advert', component: AddAdvertComponent },
+  { path: 'advert-detail', component: AdvertDetailComponent }
+];
 
 @NgModule({
   declarations: [
@@ -21,7 +29,8 @@ import {AdvertService} from './adverts/advert.service';
     DropdownDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [AdvertService],
   bootstrap: [AppComponent]
