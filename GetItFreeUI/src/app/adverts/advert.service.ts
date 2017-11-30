@@ -1,8 +1,9 @@
 import {AdvertModel} from './advert/advert.model';
-import {EventEmitter} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 
+@Injectable()
 export class AdvertService {
-  advertSelected = new EventEmitter<AdvertModel>();
+  selectedAdvert: AdvertModel;
 
   private adverts: AdvertModel[] = [
     new AdvertModel(1, 'test header', 'test content', new Date, 'https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/' +

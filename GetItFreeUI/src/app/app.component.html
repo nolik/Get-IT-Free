@@ -2,8 +2,4 @@
 
   <app-header ></app-header>
 
-<!--don't work, need to do it relate to routing!-->
-<app-advert-detail
-  *ngIf="loadedFeature === 'advert-detail'"
-                   [advertDetails]="(detailAdvert)"></app-advert-detail>
 <router-outlet></router-outlet>

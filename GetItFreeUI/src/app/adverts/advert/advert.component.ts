@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AdvertModel} from './advert.model';
 import {AdvertService} from '../advert.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-advert',
@@ -10,7 +11,8 @@ import {AdvertService} from '../advert.service';
 export class AdvertComponent implements OnInit {
   @Input() advert: AdvertModel;
 
-  constructor(private advertService: AdvertService) { }
+  constructor(private advertService: AdvertService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,7 @@ export class AdvertComponent implements OnInit {
   }
 
   onSelected() {
-    this.advertService.advertSelected.emit(this.advert);
+    this.router.navigate(['advert-detail']);
+    this.advertService.selectedAdvert = this.advert;
   }
 }

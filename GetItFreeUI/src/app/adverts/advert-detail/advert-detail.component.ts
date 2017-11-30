@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AdvertModel} from '../advert/advert.model';
+import {AdvertService} from '../advert.service';
 
 @Component({
   selector: 'app-advert-detail',
@@ -7,11 +8,13 @@ import {AdvertModel} from '../advert/advert.model';
   styleUrls: ['./advert-detail.component.css']
 })
 export class AdvertDetailComponent implements OnInit {
-  @Input() advertDetails: AdvertModel;
+  advertDetails: AdvertModel;
 
-  constructor() { }
+  constructor(private advertService: AdvertService) {
+  }
 
   ngOnInit() {
+    this.advertDetails = this.advertService.selectedAdvert;
   }
 
 }
