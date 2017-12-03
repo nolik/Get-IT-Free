@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} frombehaviourar/core';
+import {Component, OnInit} from '@angular/core';
 import {AdvertModel} from '../advert/advert.model';
 import {AdvertService} from '../advert.service';
 import {ActivatedRoute, Params} from '@angular/router';
