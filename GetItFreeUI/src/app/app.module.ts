@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path: '', component: AdvertListComponent },
   { path: 'advert-list', component: AdvertListComponent },
   { path: 'add-advert', component: AddAdvertComponent },
-  { path: 'advert-detail', component: AdvertDetailComponent }
+  { path: 'advert-detail/:id', component: AdvertDetailComponent }
 ];
 
 @NgModule({
