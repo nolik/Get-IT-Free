@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} frombehaviourar/core';
 import {AdvertModel} from '../advert/advert.model';
 import {AdvertService} from '../advert.service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-advert-detail',
@@ -8,13 +9,21 @@ import {AdvertService} from '../advert.service';
   styleUrls: ['./advert-detail.component.css']
 })
 export class AdvertDetailComponent implements OnInit {
-  advertDetails: AdvertModel;
+  detailAdvert: AdvertModel;
 
-  constructor(private advertService: AdvertService) {
+  constructor(private advertService: AdvertService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.advertDetails = this.advertService.selectedAdvert;
+    const id = +this.route.snapshot.params['id'];
+    this.detailAdvert = this.advertService.getAdvert(+id);
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.detailAdvert = this.advertService.getAdvert(+params['id']);
+        }
+      );
   }
 
 }
