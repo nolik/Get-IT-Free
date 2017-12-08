@@ -17,7 +17,8 @@ const appRoutes: Routes = [
   { path: 'advert-list', component: AdvertListComponent },
   { path: 'add-advert', component: AddAdvertComponent },
   { path: 'advert-detail/:id', component: AdvertDetailComponent },
-  { path: '**', component: PageNotFoundComponent}
+  { path: '404', component: PageNotFoundComponent},
+  { path: '**', redirectTo: '404'}
 ];
 
 @NgModule({
