@@ -7,19 +7,11 @@ import { AdvertListComponent } from './adverts/advert-list.component';
 import { AddAdvertComponent } from './adverts/add-advert/add-advert.component';
 import { AdvertComponent } from './adverts/advert/advert.component';
 import { AdvertDetailComponent } from './adverts/advert-detail/advert-detail.component';
-import {DropdownDirective} from './shared/dropdown.directive';
-import {AdvertService} from './adverts/advert.service';
-import {RouterModule, Routes} from '@angular/router';
+import { DropdownDirective} from './shared/dropdown.directive';
+import { AdvertService} from './adverts/advert.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule} from './app-routing.module';
 
-const appRoutes: Routes = [
-  { path: '', component: AdvertListComponent },
-  { path: 'advert-list', component: AdvertListComponent },
-  { path: 'add-advert', component: AddAdvertComponent },
-  { path: 'advert-detail/:id', component: AdvertDetailComponent },
-  { path: '404', component: PageNotFoundComponent},
-  { path: '**', redirectTo: '404'}
-];
 
 @NgModule({
   declarations: [
@@ -34,7 +26,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [AdvertService],
   bootstrap: [AppComponent]
