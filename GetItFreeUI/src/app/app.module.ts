@@ -11,6 +11,8 @@ import { DropdownDirective} from './shared/dropdown.directive';
 import { AdvertService} from './adverts/advert.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule} from './app-routing.module';
+import {AuthGuardService} from './auth-guard.service';
+import {AuthService} from './auth.service';
 
 
 @NgModule({
@@ -28,7 +30,7 @@ import { AppRoutingModule} from './app-routing.module';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [AdvertService],
+  providers: [AdvertService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
