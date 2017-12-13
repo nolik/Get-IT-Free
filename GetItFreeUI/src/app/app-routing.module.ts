@@ -5,6 +5,7 @@ import {AddAdvertComponent} from './adverts/add-advert/add-advert.component';
 import {AdvertDetailComponent} from './adverts/advert-detail/advert-detail.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuardService} from './auth-guard.service';
+import {ErrorPageComponent} from './error-page/error-page.component';
 
 
 const appRoutes: Routes = [
@@ -16,6 +17,9 @@ const appRoutes: Routes = [
       {path: ':id/#edit', canActivate: [AuthGuardService], component: AdvertDetailComponent}
       ]},
   { path: '404', component: PageNotFoundComponent},
+  { path: 'error', children: [
+      {path: 'custom-error', component: ErrorPageComponent, data: {message: 'Catch a custom error'}}
+    ]},
   { path: '**', redirectTo: '404'}
 ];
 

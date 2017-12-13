@@ -11,8 +11,9 @@ import { DropdownDirective} from './shared/dropdown.directive';
 import { AdvertService} from './adverts/advert.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule} from './app-routing.module';
-import {AuthGuardService} from './auth-guard.service';
-import {AuthService} from './auth.service';
+import { AuthGuardService} from './auth-guard.service';
+import { AuthService} from './auth.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {AuthService} from './auth.service';
     AdvertComponent,
     AdvertDetailComponent,
     DropdownDirective,
+    ErrorPageComponent,
     PageNotFoundComponent
   ],
   imports: [
