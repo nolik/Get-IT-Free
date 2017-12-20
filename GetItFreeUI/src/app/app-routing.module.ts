@@ -10,7 +10,7 @@ import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolv
 
 
 const appRoutes: Routes = [
-  { path: '', component: AdvertListComponent },
+  { path: '', redirectTo: '/advert-list', pathMatch: 'full' },
   { path: 'advert-list', component: AdvertListComponent },
   { path: 'add-advert', component: AddAdvertComponent },
   { path: 'advert-detail', children: [
