@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdvertModel} from '../advert/advert.model';
 import {AdvertService} from '../advert.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Data, Params} from '@angular/router';
 
 @Component({
   selector: 'app-advert-detail',
@@ -16,12 +16,18 @@ export class AdvertDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
-    this.detailAdvert = this.advertService.getAdvert(+id);
-    this.route.params
+    // const id = +this.route.snapshot.params['id'];
+    // this.detailAdvert = this.advertService.getAdvert(+id);
+    // this.route.params
+    //   .subscribe(
+    //     (params: Params) => {
+    //       this.detailAdvert = this.advertService.getAdvert(+params['id']);
+    //     }
+    //   );
+    this.route.data
       .subscribe(
-        (params: Params) => {
-          this.detailAdvert = this.advertService.getAdvert(+params['id']);
+        (data: Data) => {
+          this.detailAdvert = data['detailedAdvert'];
         }
       );
   }

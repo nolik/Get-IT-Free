@@ -14,6 +14,7 @@ import { AppRoutingModule} from './app-routing.module';
 import { AuthGuardService} from './auth-guard.service';
 import { AuthService} from './auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolver.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [AdvertService, AuthGuardService, AuthService],
+  providers: [AdvertService, AuthGuardService, AuthService, AdvertDetailResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
