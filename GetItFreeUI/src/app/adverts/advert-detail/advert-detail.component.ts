@@ -16,14 +16,6 @@ export class AdvertDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    // const id = +this.route.snapshot.params['id'];
-    // this.detailAdvert = this.advertService.getAdvert(+id);
-    // this.route.params
-    //   .subscribe(
-    //     (params: Params) => {
-    //       this.detailAdvert = this.advertService.getAdvert(+params['id']);
-    //     }
-    //   );
     this.route.data
       .subscribe(
         (data: Data) => {

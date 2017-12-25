@@ -15,6 +15,7 @@ import { AuthGuardService} from './auth-guard.service';
 import { AuthService} from './auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolver.service';
+import { AdvertEditComponent } from './adverts/advert-detail/advert-edit/advert-edit.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolv
     AdvertDetailComponent,
     DropdownDirective,
     ErrorPageComponent,
+    AdvertEditComponent,
     PageNotFoundComponent
   ],
   imports: [

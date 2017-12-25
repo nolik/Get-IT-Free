@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AdvertComponent implements OnInit {
   @Input() advert: AdvertModel;
+  @Input() index: number;
 
   constructor(private advertService: AdvertService,
               private router: Router) { }

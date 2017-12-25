@@ -7,6 +7,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuardService} from './auth-guard.service';
 import {ErrorPageComponent} from './error-page/error-page.component';
 import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolver.service';
+import {AdvertEditComponent} from './adverts/advert-detail/advert-edit/advert-edit.component';
 
 
 const appRoutes: Routes = [
@@ -15,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'add-advert', component: AddAdvertComponent },
   { path: 'advert-detail', children: [
       {path: ':id', component: AdvertDetailComponent, resolve: {detailedAdvert: AdvertDetailResolver}},
-      {path: ':id/#edit', canActivate: [AuthGuardService], component: AdvertDetailComponent}
+      {path: ':id/edit', canActivate: [AuthGuardService], component: AdvertEditComponent}
       ]},
   { path: '404', component: PageNotFoundComponent},
   { path: 'error', children: [
