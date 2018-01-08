@@ -28,4 +28,8 @@ export class AdvertService {
       }
     );
   }
+
+  addAdvert(newAdvert: AdvertModel) {
+    this.adverts.push(newAdvert);
+  }
 }

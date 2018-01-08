@@ -16,6 +16,8 @@ import { AuthService} from './auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolver.service';
 import { AdvertEditComponent } from './adverts/advert-detail/advert-edit/advert-edit.component';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { AdvertEditComponent } from './adverts/advert-detail/advert-edit/advert-
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     AppRoutingModule
   ],
   providers: [AdvertService, AuthGuardService, AuthService, AdvertDetailResolver],
