@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {DataStorageService} from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   title = 'Get It Free portal';
 
-  constructor() {
+  constructor(private dataService: DataStorageService) {
   }
 
   ngOnInit() {
@@ -19,5 +20,9 @@ export class HeaderComponent implements OnInit {
 
   onSelect(feature: string) {
     this.futureSelected.emit(feature);
+  }
+
+  getLastAdverts() {
+    this.dataService.getAdverts();
   }
 }

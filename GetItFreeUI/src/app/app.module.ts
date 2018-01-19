@@ -18,6 +18,7 @@ import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolv
 import { AdvertEditComponent } from './adverts/advert-detail/advert-edit/advert-edit.component';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {DataStorageService} from './shared/data-storage.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import {HttpModule} from '@angular/http';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AdvertService, AuthGuardService, AuthService, AdvertDetailResolver],
+  providers: [AdvertService, AuthGuardService, AuthService, AdvertDetailResolver, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

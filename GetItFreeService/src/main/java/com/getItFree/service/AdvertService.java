@@ -20,11 +20,11 @@ public class AdvertService {
 
     static {
         adverts.add(new Advert(1, "пивко", "забирай добрый люд пивко", Calendar.getInstance().getTime(),
-                "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg"));
+                "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg", false));
         adverts.add(new Advert(2, "пивко2", "забирай добрый люд пивко", Calendar.getInstance().getTime(),
-                "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg"));
+                "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg", false));
         adverts.add(new Advert(3, "пивко3", "забирай добрый люд пивко", Calendar.getInstance().getTime(),
-                "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg"));
+                "https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg", false));
     }
 
     @Autowired

@@ -1,5 +1,5 @@
 import {AdvertModel} from './advert/advert.model';
-import {EventEmitter, Injectable} from '@angular/core';
+import {EventEmitter, Injectable, OnInit} from '@angular/core';
 
 @Injectable()
 export class AdvertService {
@@ -16,6 +16,11 @@ export class AdvertService {
     new AdvertModel(5, 'test header5', 'test content', new Date, 'https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/' +
       'stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg', false)
   ];
+
+  setAdverts(adverts: AdvertModel[]) {
+    // this.adverts = adverts;
+    console.log(adverts);
+  }
 
   getAdverts() {
     return this.adverts.slice();
