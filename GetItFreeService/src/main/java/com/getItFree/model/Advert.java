@@ -20,4 +20,5 @@ public class Advert {
     private String content;
     private Date date;
     private String imageUrl;
+    private boolean ordered;
 }
