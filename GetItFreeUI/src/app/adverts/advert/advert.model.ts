@@ -8,7 +8,10 @@ export class AdvertModel {
 
 
   constructor(id: number, head: string, content: string, date: Date, imageUrl: string, ordered: boolean) {
-    this.id = id;
+    if (id) {
+      this.id = id;
+    }
+
     this.head = head;
     this.content = content;
     this.date = date;

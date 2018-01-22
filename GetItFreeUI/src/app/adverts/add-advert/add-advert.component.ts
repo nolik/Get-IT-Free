@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AdvertModel} from '../advert/advert.model';
 import {NgForm} from '@angular/forms';
 import {AdvertService} from '../advert.service';
+import {DataStorageService} from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-add-advert',
@@ -10,15 +11,16 @@ import {AdvertService} from '../advert.service';
 })
 export class AddAdvertComponent implements OnInit {
   private addedAdvert: AdvertModel;
-  constructor(private advertService: AdvertService) { }
+  constructor(private advertService: AdvertService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
   }
 
   onAddAdvert(form: NgForm) {
     const value = form.value;
-    const newAdvert = new AdvertModel(100, value.name, value.content, new Date, 'https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/' +
-    'stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg', false);
+    const newAdvert = new AdvertModel(undefined, value.name, value.content, new Date, value.imgURL, false);
+    this.dataStorageService.addNewAdvert(newAdvert);
     this.advertService.addAdvert(newAdvert);
   }
 }
