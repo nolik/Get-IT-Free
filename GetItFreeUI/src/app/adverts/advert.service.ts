@@ -1,8 +1,11 @@
 import {AdvertModel} from './advert/advert.model';
-import {EventEmitter, Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs/Subject';
+import {DataStorageService} from '../shared/data-storage.service';
 
 @Injectable()
 export class AdvertService {
+  advertsChanged = new Subject<AdvertModel[]>();
 
   private adverts: AdvertModel[] = [
     new AdvertModel(1, 'test header', 'test content', new Date, 'https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/' +
@@ -18,16 +21,18 @@ export class AdvertService {
   ];
 
   setAdverts(adverts: AdvertModel[]) {
-    // this.adverts = adverts;
-    console.log(adverts);
+  //   this.adverts = adverts;
+  //   this.advertsChanged.next(this.adverts.slice());
+  //   console.log(adverts);
   }
 
   getAdverts() {
+    // this.dataStorageService.getAdverts();
     return this.adverts.slice();
   }
 
   getAdvert(id: number) {
-   return this.adverts.find(
+    return this.adverts.find(
       (a) => {
         return a.id === id;
       }
@@ -36,5 +41,6 @@ export class AdvertService {
 
   addAdvert(newAdvert: AdvertModel) {
     this.adverts.push(newAdvert);
+    this.advertsChanged.next(this.adverts.slice());
   }
 }
