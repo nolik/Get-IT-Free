@@ -15,8 +15,8 @@ const appRoutes: Routes = [
   { path: 'advert-list', component: AdvertListComponent },
   { path: 'add-advert', component: AddAdvertComponent },
   { path: 'advert-detail', children: [
-      {path: ':id', component: AdvertDetailComponent, resolve: {detailedAdvert: AdvertDetailResolver}},
-      {path: ':id/edit', canActivate: [AuthGuardService], component: AdvertEditComponent}
+      {path: ':_id', component: AdvertDetailComponent, resolve: {detailedAdvert: AdvertDetailResolver}},
+      {path: ':_id/edit', canActivate: [AuthGuardService], component: AdvertEditComponent}
       ]},
   { path: '404', component: PageNotFoundComponent},
   { path: 'error', children: [

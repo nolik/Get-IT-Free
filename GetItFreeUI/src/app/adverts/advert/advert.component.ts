@@ -23,6 +23,6 @@ export class AdvertComponent implements OnInit {
   }
 
   onSelected() {
-    this.router.navigate(['advert-detail/', this.advert.id]);
+    this.router.navigate(['advert-detail/', this.advert._id]);
   }
 }

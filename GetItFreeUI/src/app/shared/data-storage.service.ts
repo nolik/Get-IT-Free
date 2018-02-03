@@ -1,27 +1,33 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Response} from '@angular/http';
-import {AdvertService} from '../adverts/advert.service';
 import {AdvertModel} from '../adverts/advert/advert.model';
-import {Headers} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {catchError, tap} from 'rxjs/operators';
+import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class DataStorageService {
 
-  headers: Headers = new Headers({'Content-Type': 'application/json'});
-  options: RequestOptions = new RequestOptions({headers: this.headers});
+  // headers: Headers = new Headers({'Content-Type': 'application/json'});
+  // options: RequestOptions = new RequestOptions({headers: this.headers});
 
-  constructor(private http: Http, private advertService: AdvertService) {
+  constructor(private http: HttpClient) {
   }
 
-  getAdverts() {
-    this.http.get('http://localhost:8090/adverts')
-      .subscribe(
-        (response: Response) => {
-          const adverts: AdvertModel[] = response.json();
-          console.log(adverts);
-          this.advertService.setAdverts(adverts);
-        }
+  getAdverts(): Observable<AdvertModel[]> {
+    console.log('call DataStorageService');
+    return this.http.get<AdvertModel[]>('http://localhost:8090/adverts')
+      .pipe(
+        tap(adverts => console.log(`dataService-getAdverts` + adverts)),
+        catchError(this.handleError('getAdverts', []))
       );
+    // .subscribe(
+    //   (response: Response) => {
+    //     const adverts: AdvertModel[] = response.json();
+    //     console.log(adverts);
+    //     this.advertService.setAdverts(adverts);
+    //   }
+    // );
   }
 
   // addAdvert(newAdvert: AdvertModel) {
@@ -35,9 +41,29 @@ export class DataStorageService {
   // }
 
   addNewAdvert(newAdvert: AdvertModel) {
-    return this.http.post('http://localhost:8090/add-advert', newAdvert, this.options)
-      .subscribe(
-        ((response: Response) => console.log(response))
-      );
+    return this.http.post('http://localhost:8090/add-advert', newAdvert);
+    // .subscribe(
+    //   ((response: Response) => console.log(response))
+    // );
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      console.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 }
