@@ -11,6 +11,6 @@ export class AdvertDetailResolver implements Resolve<AdvertModel> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<AdvertModel> |
     Promise<AdvertModel> | AdvertModel {
-    return this.advertService.getAdvert(+route.params['id']);
+    return this.advertService.getAdvert(+route.params['_id']);
   }
 }
