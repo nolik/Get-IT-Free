@@ -1,0 +1,36 @@
+target/
+.gradle/
+gradle
+
+### STS ###
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+### Mac ###
+.DS_Store
+
+### frontend ###
+npm-debug.*
+src/main/resources/static/
+Будет удалено .gitignore
+Будет удалено .gradle/
+Будет удалено gradle/
+Будет удалено src/test/
