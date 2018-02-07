@@ -21,6 +21,11 @@ import {FormsModule} from '@angular/forms';
 
 
 import {DataStorageService} from './shared/data-storage.service';
+import {
+  MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatMenuModule, MatProgressSpinnerModule, MatToolbarModule,
+  MatTooltipModule
+} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -40,7 +45,16 @@ import {DataStorageService} from './shared/data-storage.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    FlexLayoutModule
   ],
   providers: [AdvertService, AuthGuardService, AuthService, AdvertDetailResolver,
     HttpClientModule, DataStorageService],
