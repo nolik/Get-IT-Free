@@ -1,38 +1,10 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a routerLink="/" class="navbar-brand">Welcome to {{title}}!</a>
-    </div>
-
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/advert-list">Adverts</a></li>
-        <li routerLinkActive="active"><a routerLink="/add-advert">Add advert</a></li>
-      </ul>
-
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" appDropdown>
-          <a
-            class="dropdown-toggle"
-            role="button">Profile <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer">My Profile</a></li>
-            <li><a style="cursor: pointer" (click)="getLastAdverts()">get Adverts</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-
-  </div>
-</nav>
-
 <mat-toolbar color="primary" class="app-navbar">
   <button mat-button mat-ripple routerLink="/">
-    <img alt="Angular-Spring-Starter" class="app-angular-logo" src="assets/image/angular-white-transparent.svg">
+    <img alt="Get-It-Free" class="app-angular-logo" src="assets/image/angular-white-transparent.svg">
     <span>Get It Free!</span>
+  </button>
+  <button routerLinkActive="active" routerLink="/add-advert" mat-button mat-ripple>
+    <span>Add advert</span>
   </button>
 
   <div class="right">
