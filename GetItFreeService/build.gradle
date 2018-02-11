@@ -23,17 +23,19 @@ repositories {
 }
 
 ext{
-	springDataMongoDBVersion = '1.5.4.RELEASE'
 	guavaVersion = '21.0'
 	lombokVersion = '1.16.18'
-	startertWebVersion = '1.1.8.RELEASE'
+	jjwtVersion='0.9.0'
 }
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	compile("org.springframework.boot:spring-boot-starter-web:${startertWebVersion}")
-	compile("org.springframework.boot:spring-boot-starter-data-mongodb:${springDataMongoDBVersion}")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("com.google.guava:guava:${guavaVersion}")
 	compile("org.projectlombok:lombok:${lombokVersion}")
+	compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+	compile("joda-time:joda-time")
 }

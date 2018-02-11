@@ -1,7 +1,8 @@
-package com.getItFree.service;
+package com.getItFree.service.impl;
 
 import com.getItFree.model.Advert;
 import com.getItFree.repository.AdvertRepository;
+import com.getItFree.service.AdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
