@@ -34,7 +34,7 @@ public class AdvertServiceImpl implements AdvertService {
 
     @PostConstruct
     public void init(){
-        advertRepository.save(adverts);
+        advertRepository.saveAll(adverts);
     }
 
 

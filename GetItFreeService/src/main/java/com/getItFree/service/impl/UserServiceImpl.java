@@ -8,10 +8,12 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -38,8 +40,8 @@ public class UserServiceImpl implements UserService {
 
     @PreAuthorize("hasRole('ADMIN')")
     public User findById(BigInteger id) throws AccessDeniedException {
-        User u = userRepository.findOne(id);
-        return u;
+//        User u = userRepository.findOne(id);
+        return null;
     }
 
     @PreAuthorize("hasRole('ADMIN')")

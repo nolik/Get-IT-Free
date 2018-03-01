@@ -1,4 +1,4 @@
-package com.getItFree;
+package com.getItFree.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
