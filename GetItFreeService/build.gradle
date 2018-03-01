@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.10.RELEASE'
+		springBootVersion = '2.0.0.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -13,10 +13,11 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.getItFree'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
 
 repositories {
 	mavenCentral()
@@ -24,18 +25,19 @@ repositories {
 
 ext{
 	guavaVersion = '21.0'
-	lombokVersion = '1.16.18'
+	lombokVersion = '1.16.20'
 	jjwtVersion='0.9.0'
+	jodaTime ='2.9.9'
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("com.google.guava:guava:${guavaVersion}")
-	compile("org.projectlombok:lombok:${lombokVersion}")
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")
 	compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
-	compile("joda-time:joda-time")
+	compile("joda-time:joda-time:${jodaTime}")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+
 }
