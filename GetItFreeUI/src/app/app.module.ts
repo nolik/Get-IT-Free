@@ -20,12 +20,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 
-import {DataStorageService} from './shared/data-storage.service';
+import {DataStorageService} from './service/data-storage.service';
 import {
   MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatMenuModule, MatProgressSpinnerModule, MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DropdownDirective,
     ErrorPageComponent,
     AdvertEditComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

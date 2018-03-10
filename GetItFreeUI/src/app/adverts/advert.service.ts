@@ -1,7 +1,7 @@
 import {AdvertModel} from './advert/advert.model';
 import {Injectable, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-import {DataStorageService} from '../shared/data-storage.service';
+import {DataStorageService} from '../service/data-storage.service';
 
 @Injectable()
 export class AdvertService {

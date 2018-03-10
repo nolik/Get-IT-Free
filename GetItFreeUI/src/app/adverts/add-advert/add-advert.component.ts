@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AdvertModel} from '../advert/advert.model';
 import {NgForm} from '@angular/forms';
 import {AdvertService} from '../advert.service';
-import {DataStorageService} from '../../shared/data-storage.service';
+import {DataStorageService} from '../../service/data-storage.service';
 
 @Component({
   selector: 'app-add-advert',
