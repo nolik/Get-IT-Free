@@ -13,7 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 public class Authority implements GrantedAuthority {
 
     public enum AuthorityRole {
-        USER, ADMIN
+        ROLE_USER, ROLE_ADMIN
     }
     
     private AuthorityRole authorityRole;
