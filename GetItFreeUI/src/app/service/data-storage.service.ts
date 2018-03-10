@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {catchError, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
+import {ConfigService} from './config.service';
 
 @Injectable()
 export class DataStorageService {
@@ -11,12 +12,13 @@ export class DataStorageService {
   // headers: Headers = new Headers({'Content-Type': 'application/json'});
   // options: RequestOptions = new RequestOptions({headers: this.headers});
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private config: ConfigService) {
   }
 
   getAdverts(): Observable<AdvertModel[]> {
     console.log('call DataStorageService');
-    return this.http.get<AdvertModel[]>('http://localhost:8090/adverts')
+    return this.http.get<AdvertModel[]>(this.config.adverts_url)
       .pipe(
         tap(adverts => console.log(`dataService-getAdverts` + adverts)),
         catchError(this.handleError('getAdverts', []))
@@ -41,7 +43,7 @@ export class DataStorageService {
   // }
 
   addNewAdvert(newAdvert: AdvertModel) {
-    return this.http.post('http://localhost:8090/add-advert', newAdvert);
+    return this.http.post(this.config.add_advert_url, newAdvert);
     // .subscribe(
     //   ((response: Response) => console.log(response))
     // );

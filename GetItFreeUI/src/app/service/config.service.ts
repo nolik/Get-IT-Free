@@ -3,6 +3,10 @@ import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ConfigService {
+  get add_advert_url(): string {
+    return this._add_advert_url;
+  }
+
 
   private _api_url = '/api';
 
@@ -17,6 +21,10 @@ export class ConfigService {
   private _reset_credentials_url = this._user_url + '/reset-credentials';
 
   private _signup_url = this._api_url + '/signup';
+
+  private _adverts_url = this._api_url + '/adverts';
+
+  private _add_advert_url= this._api_url + 'add-advert';
 
   get reset_credentials_url(): string {
     return this._reset_credentials_url;
@@ -40,6 +48,10 @@ export class ConfigService {
 
   get signup_url(): string {
     return this._signup_url;
+  }
+
+  get adverts_url(): string {
+    return this._adverts_url;
   }
 
 }
