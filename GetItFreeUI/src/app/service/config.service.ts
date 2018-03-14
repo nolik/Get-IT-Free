@@ -2,10 +2,6 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ConfigService {
-  get add_advert_url(): string {
-    return this._add_advert_url;
-  }
-
 
   private _api_url = '/api';
 
@@ -22,6 +18,8 @@ export class ConfigService {
   private _adverts_url = this._api_url + '/adverts';
 
   private _add_advert_url = this._api_url + 'add-advert';
+
+  private _whoami_url = this._api_url + '/whoami';
 
   get refresh_token_url(): string {
     return this._refresh_token_url;
@@ -45,6 +43,14 @@ export class ConfigService {
 
   get adverts_url(): string {
     return this._adverts_url;
+  }
+
+  get whoami_url(): string {
+    return this._whoami_url;
+  }
+
+  get add_advert_url(): string {
+    return this._add_advert_url;
   }
 
 }
