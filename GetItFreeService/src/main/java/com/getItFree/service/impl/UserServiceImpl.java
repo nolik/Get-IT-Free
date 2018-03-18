@@ -1,5 +1,6 @@
 package com.getItFree.service.impl;
 
+import com.getItFree.model.Authority;
 import com.getItFree.model.User;
 import com.getItFree.repository.UserRepository;
 import com.getItFree.service.UserService;
@@ -52,6 +53,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User userRequest) {
+        userRequest.setAuthority(List.of(new Authority(Authority.AuthorityRole.ROLE_USER)));
         this.userRepository.save(userRequest);
         return userRequest;
     }

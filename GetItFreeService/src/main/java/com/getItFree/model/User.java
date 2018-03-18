@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,7 +16,6 @@ import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -28,8 +29,10 @@ public class User implements UserDetails, Serializable {
     private BigInteger _id;
     private String username;
     private String password;
-    private Email email;
-    private Date creationDate;
+    @Email
+    private String email;
+    @CreatedDate
+    private DateTime creationDate;
     private List<Authority> authority;
 
     //way to avoid of creation separate Authority instance in db
