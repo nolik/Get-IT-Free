@@ -22,7 +22,6 @@ sourceCompatibility = 1.9
 repositories {
 	mavenCentral()
 }
-
 ext{
 	guavaVersion = '21.0'
 	lombokVersion = '1.16.20'
@@ -36,8 +35,8 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("com.google.guava:guava:${guavaVersion}")
 	compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    compile ('javax.xml.bind:jaxb-api:2.3.0')
 	compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
 	compile("joda-time:joda-time:${jodaTime}")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
-
 }
