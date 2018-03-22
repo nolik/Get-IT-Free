@@ -75,7 +75,6 @@ export function initUserFactory(userService: UserService) {
     GuestGuard,
     AdminGuard,
     AdvertService,
-    // AuthGuardService,
     AuthService,
     ApiService,
     ConfigService,
