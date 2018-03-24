@@ -48,7 +48,7 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @RequestMapping("/whoami")
+    @RequestMapping("/get-user-info")
     @PreAuthorize("hasRole('USER')")
     public User user() {
         return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

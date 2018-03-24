@@ -19,7 +19,7 @@ export class ConfigService {
 
   private _add_advert_url = this._api_url + 'add-advert';
 
-  private _whoami_url = this._api_url + '/whoami';
+  private _get_user_info = this._api_url + '/get-user-info';
 
   get refresh_token_url(): string {
     return this._refresh_token_url;
@@ -45,8 +45,8 @@ export class ConfigService {
     return this._adverts_url;
   }
 
-  get whoami_url(): string {
-    return this._whoami_url;
+  get get_user_info(): string {
+    return this._get_user_info;
   }
 
   get add_advert_url(): string {

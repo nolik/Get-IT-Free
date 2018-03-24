@@ -20,7 +20,7 @@ export class AuthService {
     const body = `username=${user.username}&password=${user.password}`;
     return this.apiService.post(this.config.login_url, body, loginHeaders).map(() => {
       console.log('Login success');
-      this.userService.getMyInfo().subscribe();
+      this.userService.getUserInfo().subscribe();
     });
   }
 

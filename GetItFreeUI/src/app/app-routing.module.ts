@@ -13,13 +13,13 @@ import {LoginComponent} from './login';
 
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/advert-list', pathMatch: 'full'},
+  {path: '', component: AdvertListComponent, pathMatch: 'full'},
   {path: 'advert-list', component: AdvertListComponent},
   {path: 'add-advert', component: AddAdvertComponent},
   {
     path: 'advert-detail', children: [
       {path: ':_id', component: AdvertDetailComponent, resolve: {detailedAdvert: AdvertDetailResolver}},
-      {path: ':_id/edit',  component: AdvertEditComponent}
+      {path: ':_id/edit', component: AdvertEditComponent}
     ]
   },
   {
