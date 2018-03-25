@@ -1,4 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../service/auth.service';
+import {UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-header',
@@ -11,17 +14,26 @@ export class HeaderComponent implements OnInit {
 
   title = 'Get It Free portal';
 
-  constructor() {
+  constructor(private userService: UserService,
+              private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  onSelect(feature: string) {
-    this.futureSelected.emit(feature);
+  logout() {
+    this.authService.logout().subscribe(res => {
+      this.router.navigate(['/login']);
+    });
   }
 
-  getLastAdverts() {
-    // this.advertService.getAdverts();
+  hasSignedIn() {
+    return !!this.userService.currentUser;
+  }
+
+  userName() {
+    const user = this.userService.currentUser;
+    return user.username;
   }
 }

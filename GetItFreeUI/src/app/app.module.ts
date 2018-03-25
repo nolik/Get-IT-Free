@@ -42,6 +42,7 @@ import {ApiService} from './service/api.service';
 import {ConfigService} from './service/config.service';
 import {LoginComponent} from './login';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AccountMenuComponent} from './header/account-menu/account-menu.component';
 
 export function initUserFactory(userService: UserService) {
   return () => userService.initUser();
@@ -51,6 +52,7 @@ export function initUserFactory(userService: UserService) {
   declarations: [
     AppComponent,
     HeaderComponent,
+    AccountMenuComponent,
     AdvertListComponent,
     AddAdvertComponent,
     AdvertComponent,
