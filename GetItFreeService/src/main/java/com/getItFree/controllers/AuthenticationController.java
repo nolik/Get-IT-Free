@@ -60,16 +60,16 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<?> changePassword(@RequestBody PasswordChanger passwordChanger) {
-        userDetailsService.changePassword(passwordChanger.oldPassword, passwordChanger.newPassword);
+    public ResponseEntity<?> changePassword(@RequestBody PasswordChangerForm passwordChangerForm) {
+        userDetailsService.changePassword(passwordChangerForm.oldPassword, passwordChangerForm.newPassword);
         Map<String, String> result = new HashMap<>();
         result.put( "result", "success" );
         return ResponseEntity.accepted().body(result);
     }
 
-    static class PasswordChanger {
-        String oldPassword;
-        String newPassword;
+    static class PasswordChangerForm {
+       public String oldPassword;
+       public String newPassword;
     }
 
 }

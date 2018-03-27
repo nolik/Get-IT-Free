@@ -8,8 +8,9 @@ import {ErrorPageComponent} from './error-page/error-page.component';
 import {AdvertDetailResolver} from './adverts/advert-detail/advert-detail-resolver.service';
 import {AdvertEditComponent} from './adverts/advert-detail/advert-edit/advert-edit.component';
 import {SignupComponent} from './signup/signup.component';
-import {GuestGuard} from './guard';
+import {GuestGuard, LoginGuard} from './guard';
 import {LoginComponent} from './login';
+import {ChangePasswordComponent} from './change-password';
 
 
 const appRoutes: Routes = [
@@ -32,6 +33,11 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [GuestGuard]
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    canActivate: [LoginGuard]
   },
   {path: '404', component: PageNotFoundComponent},
   {

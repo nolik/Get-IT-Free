@@ -43,6 +43,7 @@ import {ConfigService} from './service/config.service';
 import {LoginComponent} from './login';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountMenuComponent} from './header/account-menu/account-menu.component';
+import {ChangePasswordComponent} from './change-password';
 
 export function initUserFactory(userService: UserService) {
   return () => userService.initUser();
@@ -62,7 +63,8 @@ export function initUserFactory(userService: UserService) {
     AdvertEditComponent,
     PageNotFoundComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserAnimationsModule,
