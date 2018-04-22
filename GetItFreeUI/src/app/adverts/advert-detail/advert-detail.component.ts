@@ -6,7 +6,7 @@ import {ActivatedRoute, Data, Params} from '@angular/router';
 @Component({
   selector: 'app-advert-detail',
   templateUrl: './advert-detail.component.html',
-  styleUrls: ['./advert-detail.component.css']
+  styleUrls: ['./advert-detail.component.scss']
 })
 export class AdvertDetailComponent implements OnInit {
   detailAdvert: AdvertModel;
