@@ -30,7 +30,9 @@
   <mat-card-actions>
     <button
       mat-raised-button
-      color="primary">
+      color="primary"
+      [disabled]="detailAdvert.ordered"
+      (click)="orderAdvert()">
       ORDER
     </button>
   </mat-card-actions>

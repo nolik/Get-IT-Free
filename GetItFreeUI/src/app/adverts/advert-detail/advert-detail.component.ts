@@ -24,4 +24,8 @@ export class AdvertDetailComponent implements OnInit {
       );
   }
 
+  orderAdvert() {
+    this.detailAdvert.ordered = true;
+  }
+
 }

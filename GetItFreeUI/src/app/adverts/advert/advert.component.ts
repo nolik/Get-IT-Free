@@ -18,10 +18,6 @@ export class AdvertComponent implements OnInit {
   ngOnInit() {
   }
 
-  // orderAdvert() {
-  //   this.advert.ordered = true;
-  // }
-
   onSelected() {
     this.router.navigate(['advert-detail/', this.advert._id]);
   }
