@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-advert',
   templateUrl: './advert.component.html',
-  styleUrls: ['./advert.component.css']
+  styleUrls: ['./advert.component.scss']
 })
 export class AdvertComponent implements OnInit {
   @Input() advert: AdvertModel;
@@ -18,9 +18,9 @@ export class AdvertComponent implements OnInit {
   ngOnInit() {
   }
 
-  orderAdvert() {
-    this.advert.ordered = true;
-  }
+  // orderAdvert() {
+  //   this.advert.ordered = true;
+  // }
 
   onSelected() {
     this.router.navigate(['advert-detail/', this.advert._id]);

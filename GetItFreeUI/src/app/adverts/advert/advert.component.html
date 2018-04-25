@@ -1,25 +1,15 @@
-<a style="cursor: pointer;" (click)="onSelected()">
-  <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-    <div class="card">
-
-      <img class="card-img-top" [src]="advert.imageUrl">
-
-      <div class="card-block">
-        <h4 class="card-title">{{advert.head}}</h4>
-        <div class="meta">
-          <a>{{advert._id}}</a>
-        </div>
-        <div class="card-text">
-          {{advert.content}}
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-info btn-sm" [disabled]="advert.ordered" (click)="orderAdvert()">Get it!</button>
-        <button class="btn btn-info btn-sm" (click)="onSelected()">Details!</button>
-      </div>
+  <a class="advert-link" (click)="onSelected()">
+    <div class="col-lg-3 advert-border">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{advert.head}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image class="card-img" [src]="advert.imageUrl">
+        <mat-card-content>
+          <p>
+            {{advert.content}}
+          </p>
+        </mat-card-content>
+      </mat-card>
     </div>
-
-    <hr/>
-  </div>
-</a>
-
+  </a>
