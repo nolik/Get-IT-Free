@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 public interface UserService {
+
     void resetCredentials();
 
     User findById(BigInteger id);

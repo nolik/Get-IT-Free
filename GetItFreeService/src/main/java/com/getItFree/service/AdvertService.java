@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AdvertService {
 
-    public List<Advert> findAllAdvertsFromDB();
+    List<Advert> findAllAdvertsFromDB();
 
-    public Advert addNewAdvert(Advert advert);
+    Advert addNewAdvert(Advert advert);
 }
