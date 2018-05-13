@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
+@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UploadController {
 
     @Autowired
@@ -23,7 +24,7 @@ public class UploadController {
 
     private List<String> files = new ArrayList<>();
 
-    @PostMapping("/post")
+    @PostMapping("/file-upload")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
         String message = "";
         try {
@@ -38,7 +39,7 @@ public class UploadController {
         }
     }
 
-    @GetMapping("/getallfiles")
+    @GetMapping("/get-all-files")
     public ResponseEntity<List<String>> getListFiles(Model model) {
         List<String> fileNames = files
                 .stream().map(fileName -> MvcUriComponentsBuilder

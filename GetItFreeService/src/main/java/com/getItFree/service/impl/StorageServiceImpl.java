@@ -3,6 +3,7 @@ package com.getItFree.service.impl;
 import com.getItFree.service.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -13,17 +14,18 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Service
 public class StorageServiceImpl implements StorageService {
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocation = Paths.get("upload-dir");
+
+    @Value("${images.folder}")
+    private Path imagesFolderLocation;
 
     @Override
     public void store(MultipartFile file) {
         try {
-            Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+            Files.copy(file.getInputStream(), this.imagesFolderLocation.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
             throw new RuntimeException("FAIL During Store File!");
         }
@@ -32,7 +34,7 @@ public class StorageServiceImpl implements StorageService {
     @Override
     public Resource loadFile(String filename) {
         try {
-            Path file = rootLocation.resolve(filename);
+            Path file = imagesFolderLocation.resolve(filename);
             Resource resource = new UrlResource(file.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return resource;
@@ -46,13 +48,13 @@ public class StorageServiceImpl implements StorageService {
 
     @Override
     public void deleteAll() {
-        FileSystemUtils.deleteRecursively(rootLocation.toFile());
+        FileSystemUtils.deleteRecursively(imagesFolderLocation.toFile());
     }
 
     @Override
     public void init() {
         try {
-            Files.createDirectory(rootLocation);
+            Files.createDirectory(imagesFolderLocation);
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize storage!");
         }
