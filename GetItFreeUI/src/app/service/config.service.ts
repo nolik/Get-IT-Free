@@ -21,6 +21,10 @@ export class ConfigService {
 
   private _get_user_info = this._api_url + '/get-user-info';
 
+  private _file_upload = this._api_url + '/file-upload';
+
+  private _get_all_files = this._api_url + '/get-all-files';
+
   get refresh_token_url(): string {
     return this._refresh_token_url;
   }
@@ -53,4 +57,18 @@ export class ConfigService {
     return this._add_advert_url;
   }
 
+  get get_all_files(): string {
+    return this._get_all_files;
+  }
+
+  set get_all_files(value: string) {
+    this._get_all_files = value;
+  }
+  get file_upload(): string {
+    return this._file_upload;
+  }
+
+  set file_upload(value: string) {
+    this._file_upload = value;
+  }
 }

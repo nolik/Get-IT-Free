@@ -44,6 +44,10 @@ import {LoginComponent} from './login';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountMenuComponent} from './header/account-menu/account-menu.component';
 import {ChangePasswordComponent} from './change-password';
+import { ListUploadComponent } from './adverts/add-advert/file-upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './adverts/add-advert/file-upload/details-upload/details-upload.component';
+import { FormUploadComponent } from './adverts/add-advert/file-upload/form-upload/form-upload.component';
+import {UploadFileService} from './service/upload-file.service';
 
 export function initUserFactory(userService: UserService) {
   return () => userService.initUser();
@@ -64,7 +68,10 @@ export function initUserFactory(userService: UserService) {
     PageNotFoundComponent,
     SignupComponent,
     LoginComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ListUploadComponent,
+    DetailsUploadComponent,
+    FormUploadComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -95,6 +102,7 @@ export function initUserFactory(userService: UserService) {
     HttpClientModule,
     DataStorageService,
     UserService,
+    UploadFileService,
     {
       'provide': APP_INITIALIZER,
       'useFactory': initUserFactory,

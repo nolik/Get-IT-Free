@@ -11,8 +11,7 @@ import {DataStorageService} from '../../service/data-storage.service';
 })
 export class AddAdvertComponent implements OnInit {
   private addedAdvert: AdvertModel;
-  constructor(private advertService: AdvertService/*,*/
-             /* private dataStorageService: DataStorageService*/) { }
+  constructor(private advertService: AdvertService) { }
 
   ngOnInit() {
   }
@@ -20,7 +19,6 @@ export class AddAdvertComponent implements OnInit {
   onAddAdvert(form: NgForm) {
     const value = form.value;
     const newAdvert = new AdvertModel(undefined, value.name, value.content, new Date, value.imgURL, false);
-    // this.dataStorageService.addNewAdvert(newAdvert);
     this.advertService.addAdvert(newAdvert);
   }
 }
