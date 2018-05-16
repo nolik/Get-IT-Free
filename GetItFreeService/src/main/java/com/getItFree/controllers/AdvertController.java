@@ -13,12 +13,8 @@ import java.util.List;
 @RequestMapping( value = "/api", produces = MediaType.APPLICATION_JSON_VALUE )
 public class AdvertController {
 
-    private final AdvertService advertService;
-
     @Autowired
-    public AdvertController(AdvertService advertService) {
-        this.advertService = advertService;
-    }
+    private AdvertService advertService;
 
     @GetMapping("/adverts")
     public List<Advert> getListOfAdverts(){

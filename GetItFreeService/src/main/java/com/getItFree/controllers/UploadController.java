@@ -16,11 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RestController
+@RequestMapping( value = "/api", produces = MediaType.ALL_VALUE )
 public class UploadController {
 
     @Autowired
-    StorageService storageService;
+    private StorageService storageService;
 
     private List<String> files = new ArrayList<>();
 
