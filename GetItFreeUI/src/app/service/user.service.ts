@@ -1,3 +1,5 @@
+
+import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {ApiService} from './api.service';
 import {ConfigService} from './config.service';
@@ -25,6 +27,6 @@ export class UserService {
   }
 
   getUserInfo() {
-    return this.apiService.get(this.config.get_user_info).map(user => this.currentUser = user);
+    return this.apiService.get(this.config.get_user_info).pipe(map(user => this.currentUser = user));
   }
 }

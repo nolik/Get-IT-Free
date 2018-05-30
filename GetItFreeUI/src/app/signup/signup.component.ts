@@ -1,6 +1,8 @@
+
+import {delay, takeUntil} from 'rxjs/operators';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 import {AuthService} from '../service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../service/user.service';
@@ -40,8 +42,8 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.route.params
-      .takeUntil(this.ngUnsubscribe)
+    this.route.params.pipe(
+      takeUntil(this.ngUnsubscribe))
       .subscribe((params: DisplayMessage) => {
         this.notification = params;
       });
@@ -66,9 +68,9 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.notification = undefined;
     this.submitted = true;
 
-    this.authService.signup(this.form.value)
+    this.authService.signup(this.form.value).pipe(
     // show me the animation
-      .delay(1000)
+      delay(1000))
       .subscribe(data => {
           console.log(data);
           this.authService.login(this.form.value).subscribe(() => {

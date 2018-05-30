@@ -1,3 +1,5 @@
+
+import {mergeMap, delay} from 'rxjs/operators';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../service/auth.service';
@@ -49,10 +51,10 @@ export class ChangePasswordComponent implements OnInit {
     this.notification = undefined;
     this.submitted = true;
 
-    this.authService.changePassowrd(this.form.value)
+    this.authService.changePassowrd(this.form.value).pipe(
     // show me the animation
-      .delay(1000)
-      .mergeMap(() => this.authService.logout())
+      delay(1000),
+      mergeMap(() => this.authService.logout()),)
       .subscribe(() => {
         this.router.navigate(['/login', {msgType: 'success', msgBody: 'Success! Please sign in with your new password.'}]);
       }, error => {

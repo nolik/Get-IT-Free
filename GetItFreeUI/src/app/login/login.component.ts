@@ -1,9 +1,11 @@
+
+import {delay, takeUntil} from 'rxjs/operators';
 ///<reference path="../../../node_modules/@angular/router/src/router.d.ts"/>
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import {DisplayMessage} from '../shared/models/display-message';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 import {UserService} from '../service/user.service';
 import {AuthService} from '../service/auth.service';
 
@@ -41,8 +43,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.route.params
-      .takeUntil(this.ngUnsubscribe)
+    this.route.params.pipe(
+      takeUntil(this.ngUnsubscribe))
       .subscribe((params: DisplayMessage) => {
         this.notification = params;
       });
@@ -66,9 +68,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.notification = undefined;
     this.submitted = true;
 
-    this.authService.login(this.form.value)
+    this.authService.login(this.form.value).pipe(
     // show me the animation
-      .delay(1000)
+      delay(1000))
       .subscribe(data => {
           // this.userService.getUserInfo().subscribe();
           console.log('login complete');

@@ -1,6 +1,6 @@
 import {AdvertModel} from '../advert/advert.model';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {AdvertService} from '../advert.service';
 import {Injectable} from '@angular/core';
 
