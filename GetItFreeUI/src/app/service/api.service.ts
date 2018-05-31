@@ -1,11 +1,9 @@
-
-import {map, filter, catchError} from 'rxjs/operators';
 import {HttpClient, HttpHeaders, HttpResponse, HttpRequest} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import 'rxjs/Rx';
 
 import {serialize} from 'app/shared/utilities/serialize';
+import {catchError, filter, map} from 'rxjs/operators';
 
 export enum RequestMethod {
   Get = 'GET',
@@ -63,7 +61,7 @@ export class ApiService {
     return this.http.request(req).pipe(
       filter(response => response instanceof HttpResponse),
       map((response: HttpResponse<any>) => response.body),
-      catchError(error => this.checkError(error)),);
+      catchError(error => this.checkError(error)));
   }
 
   // Display error if logged in, otherwise redirect
