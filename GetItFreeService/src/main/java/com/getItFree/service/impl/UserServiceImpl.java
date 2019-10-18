@@ -1,5 +1,7 @@
 package com.getItFree.service.impl;
 
+import static java.util.List.of;
+
 import com.getItFree.model.Authority;
 import com.getItFree.model.User;
 import com.getItFree.repository.UserRepository;

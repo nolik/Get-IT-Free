@@ -1,10 +1,9 @@
 package com.getItFree.repository;
 
 import com.getItFree.model.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
-
 import java.math.BigInteger;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends MongoRepository<User, BigInteger> {
+public interface UserRepository extends JpaRepository<User, BigInteger> {
     User findByUsername(String username);
 }

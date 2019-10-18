@@ -1,14 +1,12 @@
 package com.getItFree.model;
 
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.math.BigInteger;
-import java.util.Date;
 
 /**
  * Created by nolik on 03.07.17.
@@ -16,22 +14,14 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Entity
 public class Advert {
     @Id
-    @Generated
-    private BigInteger _id;
+    @GeneratedValue
+    private Long id;
     private String head;
     private String content;
     private Date date;
     private String imageUrl;
     private boolean ordered;
-
-    public Advert(String head, String content, Date date, String imageUrl, boolean ordered) {
-        this.head = head;
-        this.content = content;
-        this.date = date;
-        this.imageUrl = imageUrl;
-        this.ordered = ordered;
-    }
 }

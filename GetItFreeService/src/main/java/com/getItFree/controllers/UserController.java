@@ -40,11 +40,11 @@ public class UserController {
 
         User existUser = this.userService.findByUsername(userRequest.getUsername());
         if (existUser != null) {
-            throw new ResourceConflictException(userRequest.get_id(), "Username already exists");
+            throw new ResourceConflictException(userRequest.getId(), "Username already exists");
         }
         User user = this.userService.save(userRequest);
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/api/user/{userId}").buildAndExpand(user.get_id()).toUri());
+        headers.setLocation(ucBuilder.path("/api/user/{userId}").buildAndExpand(user.getId()).toUri());
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
