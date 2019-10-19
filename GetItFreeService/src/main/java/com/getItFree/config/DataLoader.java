@@ -10,10 +10,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 import static com.getItFree.model.Authority.ROLE_USER;
 
@@ -26,7 +23,26 @@ public class DataLoader implements ApplicationRunner {
 
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
+        List<User> users = Lists.newArrayList();
+        users.add(User.builder()
+                .username("user")
+                .password("pass")
+                .email("asd@mail.com")
+                .authority(Collections.singletonList(ROLE_USER))
+                .build()
+        );
+
+        users.add(User.builder()
+                .username("user2")
+                .password("pass")
+                .email("ewq@mail.com")
+                .authority(Collections.singletonList(ROLE_USER))
+                .build()
+        );
+
+        users.forEach(userRepository::save);
+
         //temporary initialization of db
         List<Advert> adverts = new ArrayList<>();
         adverts.add(Advert.builder()
@@ -35,6 +51,7 @@ public class DataLoader implements ApplicationRunner {
                 .date(Calendar.getInstance().getTime())
                 .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
                 .ordered(false)
+                .giver(users.get(0))
                 .build()
         );
 
@@ -44,6 +61,7 @@ public class DataLoader implements ApplicationRunner {
                 .date(Calendar.getInstance().getTime())
                 .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
                 .ordered(false)
+                .giver(users.get(1))
                 .build()
 
         );
@@ -53,31 +71,10 @@ public class DataLoader implements ApplicationRunner {
                 .date(Calendar.getInstance().getTime())
                 .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
                 .ordered(false)
+                .giver(users.get(1))
                 .build());
 
-        //adverts.forEach(advertRepository::save);
-
-
-        List<User> users = Lists.newArrayList();
-        users.add(User.builder()
-                .username("user")
-                .password("pass")
-                .email("asd@mail.com")
-                .authority(Arrays.asList(ROLE_USER))
-                .adverts(Arrays.asList(adverts.get(0)))
-                .build()
-        );
-
-        users.add(User.builder()
-                .username("user2")
-                .password("pass")
-                .email("ewq@mail.com")
-                .authority(Arrays.asList(ROLE_USER))
-                .adverts(Arrays.asList(adverts.get(1), adverts.get(2)))
-                .build()
-        );
-
-        users.forEach(userRepository::save);
+        adverts.forEach(advertRepository::save);
 
 
     }

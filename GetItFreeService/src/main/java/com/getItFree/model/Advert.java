@@ -22,4 +22,10 @@ public class Advert {
     private Date date;
     private String imageUrl;
     private boolean ordered;
+
+    @ManyToOne
+    private User giver;
+
+    @ManyToOne
+    private User taker;
 }
