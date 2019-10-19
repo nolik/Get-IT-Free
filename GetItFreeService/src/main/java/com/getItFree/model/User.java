@@ -36,6 +36,14 @@ public class User implements UserDetails, Serializable {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<Authority> authority;
+    @OneToMany
+    private List<Advert> adverts;
+
+    public Advert addAdvert(Advert advert) {
+        adverts.add(advert);
+
+        return advert;
+    }
 
     //way to avoid of creation separate Authority instance in db
     @Override

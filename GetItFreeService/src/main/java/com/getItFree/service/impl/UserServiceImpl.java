@@ -1,5 +1,6 @@
 package com.getItFree.service.impl;
 
+import com.getItFree.model.Advert;
 import com.getItFree.model.Authority;
 import com.getItFree.model.User;
 import com.getItFree.repository.UserRepository;
@@ -14,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 @Service
 @Transactional
@@ -40,7 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    public User findById(BigInteger id) throws AccessDeniedException {
+    public User findById(Long id) throws AccessDeniedException {
 //        User u = userRepository.findOne(id);
         return null;
     }
@@ -57,5 +60,17 @@ public class UserServiceImpl implements UserService {
         userRequest.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         this.userRepository.save(userRequest);
         return userRequest;
+    }
+
+    @Override
+    public Advert addAdvert(Long id, Advert advert) {
+        Optional<User> user = userRepository.findById(id);
+        user.ifPresentOrElse(u -> u.addAdvert(advert), () -> throwError(id));
+
+        return advert;
+    }
+
+    private void throwError(Long id) {
+        throw new RuntimeException("Not found " + id);
     }
 }

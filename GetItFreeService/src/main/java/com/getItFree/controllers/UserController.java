@@ -1,6 +1,7 @@
 package com.getItFree.controllers;
 
 import com.getItFree.exception.ResourceConflictException;
+import com.getItFree.model.Advert;
 import com.getItFree.model.User;
 import com.getItFree.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -9,10 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigInteger;
@@ -28,8 +26,16 @@ public class UserController {
     private final UserService userService;
 
     @RequestMapping(method = GET, value = "/user/{userId}")
-    public User loadById(@PathVariable BigInteger userId) {
+    public User loadById(@PathVariable Long userId) {
         return this.userService.findById(userId);
+    }
+
+    @PostMapping("/user/{userId}/add-advert")
+    public Advert addAdvert(
+            @PathVariable Long userId,
+            @RequestBody Advert advert){
+
+        return userService.addAdvert(userId, advert);
     }
 
     @RequestMapping(method = POST, value = "/signup")

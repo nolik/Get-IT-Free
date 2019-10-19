@@ -1,5 +1,6 @@
 package com.getItFree.service;
 
+import com.getItFree.model.Advert;
 import com.getItFree.model.User;
 
 import java.math.BigInteger;
@@ -9,11 +10,13 @@ public interface UserService {
 
     void resetCredentials();
 
-    User findById(BigInteger id);
+    User findById(Long id);
 
     User findByUsername(String username);
 
     List<User> findAll();
 
     User save(User user);
+
+    Advert addAdvert(Long userID, Advert advert);
 }
