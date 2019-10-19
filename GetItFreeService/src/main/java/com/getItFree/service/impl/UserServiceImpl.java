@@ -80,6 +80,7 @@ public class UserServiceImpl implements UserService {
         User userTaker = userRepository.findById(userId).get();
         advert.setTaker(userTaker);
         advert.setStatus(AdvertStatus.BOOKED);
+        userTaker.decrKarma(1);
 
         return advert;
     }
@@ -90,6 +91,10 @@ public class UserServiceImpl implements UserService {
         User taker = userRepository.findById(advert.getTaker().getId()).get();
         advert.setStatus(AdvertStatus.ORDERED);
         taker.addTookAdvert(advert);
+        taker.incKarma(1); //revert back karma; it was minus when booking see above com.getItFree.service.impl.UserServiceImpl.bookAdvert
+        taker.decrKarma(advert.getPrice());
+        User giver = userRepository.findById(userId).get();
+        giver.incKarma(1);
 
         return advert;
     }

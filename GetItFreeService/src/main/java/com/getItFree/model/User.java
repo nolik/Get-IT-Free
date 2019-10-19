@@ -71,6 +71,14 @@ public class User implements UserDetails, Serializable {
         return advert;
     }
 
+    public void decrKarma(int decr) {
+        this.karma = this.karma - decr;
+    }
+
+    public void incKarma(int inc) {
+        this.karma = this.karma + inc;
+    }
+
     //way to avoid of creation separate Authority instance in db
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
