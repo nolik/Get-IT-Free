@@ -68,6 +68,8 @@ public class UserServiceImpl implements UserService {
     public Advert addAdvert(Long id, Advert advert) {
         User user = userRepository.findById(id).get();
         user.addAdvert(advert);
+        advert.setGiver(user);
+        advertRepository.save(advert);
 
         return advert;
     }
