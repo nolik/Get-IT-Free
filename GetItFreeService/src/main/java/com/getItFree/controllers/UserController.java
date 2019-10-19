@@ -57,7 +57,7 @@ public class UserController {
     @PostMapping("/users/{userId}/add-advert")
     public AdvertDTO addAdvert(
             @PathVariable Long userId,
-            @RequestBody Advert advert){
+            @RequestBody Advert advert) {
 
         return modelMapper.map(userService.addAdvert(userId, advert), AdvertDTO.class);
     }
