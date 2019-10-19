@@ -1,7 +1,7 @@
 package com.getItFree.controllers;
 
 import com.getItFree.service.StorageService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,11 +17,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping( value = "/api", produces = MediaType.ALL_VALUE )
+@RequestMapping(value = "/api", produces = MediaType.ALL_VALUE)
+@RequiredArgsConstructor
 public class UploadController {
-
-    @Autowired
-    private StorageService storageService;
+    private final StorageService storageService;
 
     private List<String> files = new ArrayList<>();
 

@@ -21,7 +21,7 @@ public class AdvertController {
 
     @GetMapping("/adverts")
     public List<AdvertDTO> getListOfAdverts() {
-        return advertService.findAllAdvertsFromDB().stream()
+        return advertService.findAllAdverts().stream()
                 .map(advert -> modelMapper.map(advert, AdvertDTO.class))
                 .collect(Collectors.toList());
     }

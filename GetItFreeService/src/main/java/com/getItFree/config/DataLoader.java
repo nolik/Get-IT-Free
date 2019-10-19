@@ -57,20 +57,20 @@ public class DataLoader implements ApplicationRunner {
         );
 
         adverts.add(Advert.builder()
-                .head("пивко2")
-                .content("забирай добрый люд пивко")
+                .head("книга")
+                .content("читайте это сами")
                 .date(Calendar.getInstance().getTime())
-                .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
+                .imageUrl("https://img.labirint.ru/rcimg/c4479c18a3792f2e950a6991966f1728/1920x1080/comments_pic/1507/0_1bdb2b488034b1e5d38d6c277796284b_1423810840.jpg")
                 .status(AdvertStatus.FREE)
                 .giver(users.get(1))
                 .build()
 
         );
         adverts.add(Advert.builder()
-                .head("пивко3")
-                .content("забирай добрый люд пивко")
+                .head("камод")
+                .content("нужен кому камод")
                 .date(Calendar.getInstance().getTime())
-                .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
+                .imageUrl("https://images.by.prom.st/97629736_w640_h640_img_20180105_164532.jpg")
                 .status(AdvertStatus.FREE)
                 .giver(users.get(1))
                 .build());

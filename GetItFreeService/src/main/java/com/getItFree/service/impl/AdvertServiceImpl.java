@@ -6,9 +6,6 @@ import com.getItFree.service.AdvertService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -17,12 +14,11 @@ public class AdvertServiceImpl implements AdvertService {
 
     private final AdvertRepository advertRepository;
 
-    public List<Advert> findAllAdvertsFromDB(){
-        List<Advert> repositoryAll=  advertRepository.findAll();
-        return repositoryAll;
+    public List<Advert> findAllAdverts() {
+        return advertRepository.findAll();
     }
 
-    public Advert addNewAdvert(Advert advert){
+    public Advert addNewAdvert(Advert advert) {
         return advertRepository.save(advert);
     }
 }
