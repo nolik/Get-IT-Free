@@ -1,5 +1,6 @@
 package com.getItFree.service;
 
+import com.getItFree.dto.UserAdverts;
 import com.getItFree.model.Advert;
 import com.getItFree.model.User;
 
@@ -20,7 +21,7 @@ public interface UserService {
 
     Advert addAdvert(Long userID, Advert advert);
 
-    List<Advert> findAllUserAdverst(Long userId);
+    UserAdverts findAllUserAdverst(Long userId);
 
     Advert bookAdvert(Long userId, Long advertId);
 

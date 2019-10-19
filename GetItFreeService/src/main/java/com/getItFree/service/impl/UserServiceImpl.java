@@ -1,5 +1,6 @@
 package com.getItFree.service.impl;
 
+import com.getItFree.dto.UserAdverts;
 import com.getItFree.model.Advert;
 import com.getItFree.model.AdvertStatus;
 import com.getItFree.model.Authority;
@@ -7,6 +8,7 @@ import com.getItFree.model.User;
 import com.getItFree.repository.AdvertRepository;
 import com.getItFree.repository.UserRepository;
 import com.getItFree.service.UserService;
+import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,9 +17,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
+import static java.util.Collections.addAll;
 
 @Service
 @Transactional
@@ -104,10 +106,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Advert> findAllUserAdverst(Long userId) {
+    public UserAdverts findAllUserAdverst(Long userId) {
+        User user = userRepository.findById(userId).get();
 
-        return userRepository.findById(userId)
-                .map(User::getAdverts)
-                .orElse(Collections.emptyList());
+        List<Advert> bookedAdverts = advertRepository.findAllByTaker_Id(userId);
+
+        return new UserAdverts(user.getAdverts(), bookedAdverts);
     }
 }
