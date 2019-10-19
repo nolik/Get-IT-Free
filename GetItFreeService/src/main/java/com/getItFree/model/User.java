@@ -29,6 +29,7 @@ public class User implements UserDetails, Serializable {
     private Long id;
     private String username;
     private String password;
+    private String phone;
 
     @Email
     private String email;
