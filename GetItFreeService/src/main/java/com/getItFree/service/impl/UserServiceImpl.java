@@ -3,6 +3,7 @@ package com.getItFree.service.impl;
 import com.getItFree.model.Advert;
 import com.getItFree.model.Authority;
 import com.getItFree.model.User;
+import com.getItFree.repository.AdvertRepository;
 import com.getItFree.repository.UserRepository;
 import com.getItFree.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final AdvertRepository advertRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -65,6 +67,16 @@ public class UserServiceImpl implements UserService {
     public Advert addAdvert(Long id, Advert advert) {
         Optional<User> user = userRepository.findById(id);
 //        user.ifPresentOrElse(u -> u.addAdvert(advert), () -> throwError(id));
+
+        return advert;
+    }
+
+    @Override
+    public Advert bookAdvert(Long userId, Long advertId) {
+        Advert advert = advertRepository.findById(advertId).get();
+        User userTaker = userRepository.findById(userId).get();
+        advert.setTaker(userTaker);
+        advert.setOrdered(true);
 
         return advert;
     }

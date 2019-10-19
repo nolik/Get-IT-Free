@@ -21,4 +21,6 @@ public interface UserService {
     Advert addAdvert(Long userID, Advert advert);
 
     List<Advert> findAllUserAdverst(Long userId);
+
+    Advert bookAdvert(Long userId, Long advertId);
 }

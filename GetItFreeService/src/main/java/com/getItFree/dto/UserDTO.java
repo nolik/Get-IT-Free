@@ -1,6 +1,6 @@
 package com.getItFree.dto;
 
-import com.getItFree.model.Authority;
+import com.getItFree.model.Advert;
 import lombok.Data;
 
 import java.util.List;
@@ -9,6 +9,5 @@ import java.util.List;
 public class UserDTO {
     private Long id;
     private String username;
-    private String password;
-    private List<Authority> authority;
+    private List<AdvertDTO> adverts;
 }

@@ -23,9 +23,11 @@ public class Advert {
     private String imageUrl;
     private boolean ordered;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "giver_id")
     private User giver;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taker_id")
     private User taker;
 }

@@ -40,7 +40,11 @@ public class User implements UserDetails, Serializable {
     @Enumerated(EnumType.STRING)
     private List<Authority> authority;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "giver",
+            orphanRemoval = true
+    )
     private List<Advert> adverts = new ArrayList<>();
 
     public Advert addAdvert(Advert advert) {
@@ -48,6 +52,13 @@ public class User implements UserDetails, Serializable {
 
         return advert;
     }
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "taker",
+            orphanRemoval = true
+    )
+    private List<Advert> tookAdverts;
 
     //way to avoid of creation separate Authority instance in db
     @Override
