@@ -44,12 +44,10 @@ import {LoginComponent} from './login';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountMenuComponent} from './header/account-menu/account-menu.component';
 import {ChangePasswordComponent} from './change-password';
-import { ListUploadComponent } from './adverts/add-advert/file-upload/list-upload/list-upload.component';
-import { DetailsUploadComponent } from './adverts/add-advert/file-upload/details-upload/details-upload.component';
-import { FormUploadComponent } from './adverts/add-advert/file-upload/form-upload/form-upload.component';
+import {ListUploadComponent} from './adverts/add-advert/file-upload/list-upload/list-upload.component';
+import {DetailsUploadComponent} from './adverts/add-advert/file-upload/details-upload/details-upload.component';
+import {FormUploadComponent} from './adverts/add-advert/file-upload/form-upload/form-upload.component';
 import {UploadFileService} from './service/upload-file.service';
-import { ParentComponent } from './adverts/add-advert/parent/parent.component';
-import { ChildComponent } from './adverts/add-advert/parent/child/child.component';
 
 export function initUserFactory(userService: UserService) {
   return () => userService.initUser();
@@ -73,9 +71,7 @@ export function initUserFactory(userService: UserService) {
     ChangePasswordComponent,
     ListUploadComponent,
     DetailsUploadComponent,
-    FormUploadComponent,
-    ParentComponent,
-    ChildComponent
+    FormUploadComponent
   ],
   imports: [
     BrowserAnimationsModule,

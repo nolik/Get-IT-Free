@@ -17,7 +17,7 @@ export class ConfigService {
 
   private _adverts_url = this._api_url + '/adverts';
 
-  private _add_advert_url = this._api_url + 'add-advert';
+  private _add_advert_url = this._api_url + '/add-advert';
 
   private _get_user_info = this._api_url + '/get-user-info';
 
