@@ -1,14 +1,6 @@
 package com.getItFree.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +8,12 @@ import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,11 +26,15 @@ public class User implements UserDetails, Serializable {
     private Long id;
     private String username;
     private String password;
+
     @Email
     private String email;
+
     @CreatedDate
     private DateTime creationDate;
-    @OneToMany
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
     private List<Authority> authority;
 
     //way to avoid of creation separate Authority instance in db

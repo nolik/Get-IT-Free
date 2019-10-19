@@ -1,7 +1,5 @@
 package com.getItFree.service.impl;
 
-import static java.util.List.of;
-
 import com.getItFree.model.Authority;
 import com.getItFree.model.User;
 import com.getItFree.repository.UserRepository;
@@ -12,11 +10,13 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User userRequest) {
-        userRequest.setAuthority(List.of(new Authority(Authority.AuthorityRole.ROLE_USER)));
+        userRequest.setAuthority(List.of(Authority.ROLE_USER));
         userRequest.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         this.userRepository.save(userRequest);
         return userRequest;
