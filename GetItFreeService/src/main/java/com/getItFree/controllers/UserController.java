@@ -1,6 +1,7 @@
 package com.getItFree.controllers;
 
 import com.getItFree.dto.AdvertDTO;
+import com.getItFree.dto.UserAdvertsDTO;
 import com.getItFree.dto.UserCredentialDTO;
 import com.getItFree.dto.UserDTO;
 import com.getItFree.exception.ResourceConflictException;
@@ -46,12 +47,10 @@ public class UserController {
     }
 
     @GetMapping("/users/{userId}/adverts")
-    public List<AdvertDTO> findAllUserAdverts(
+    public UserAdvertsDTO findAllUserAdverts(
             @PathVariable Long userId) {
 
-        return userService.findAllUserAdverst(userId).stream()
-                .map(advert -> modelMapper.map(advert, AdvertDTO.class))
-                .collect(Collectors.toList());
+        return modelMapper.map(userService.findAllUserAdverst(userId), UserAdvertsDTO.class);
     }
 
     @PostMapping("/users/{userId}/add-advert")
