@@ -1,6 +1,7 @@
 package com.getItFree.config;
 
 import com.getItFree.model.Advert;
+import com.getItFree.model.AdvertStatus;
 import com.getItFree.model.User;
 import com.getItFree.repository.AdvertRepository;
 import com.getItFree.repository.UserRepository;
@@ -50,7 +51,7 @@ public class DataLoader implements ApplicationRunner {
                 .content("забирай добрый люд пивко")
                 .date(Calendar.getInstance().getTime())
                 .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
-                .ordered(false)
+                .status(AdvertStatus.FREE)
                 .giver(users.get(0))
                 .build()
         );
@@ -60,7 +61,7 @@ public class DataLoader implements ApplicationRunner {
                 .content("забирай добрый люд пивко")
                 .date(Calendar.getInstance().getTime())
                 .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
-                .ordered(false)
+                .status(AdvertStatus.FREE)
                 .giver(users.get(1))
                 .build()
 
@@ -70,7 +71,7 @@ public class DataLoader implements ApplicationRunner {
                 .content("забирай добрый люд пивко")
                 .date(Calendar.getInstance().getTime())
                 .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
-                .ordered(false)
+                .status(AdvertStatus.FREE)
                 .giver(users.get(1))
                 .build());
 

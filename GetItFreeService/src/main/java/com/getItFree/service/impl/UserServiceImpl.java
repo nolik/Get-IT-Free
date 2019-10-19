@@ -1,6 +1,7 @@
 package com.getItFree.service.impl;
 
 import com.getItFree.model.Advert;
+import com.getItFree.model.AdvertStatus;
 import com.getItFree.model.Authority;
 import com.getItFree.model.User;
 import com.getItFree.repository.AdvertRepository;
@@ -65,8 +66,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Advert addAdvert(Long id, Advert advert) {
-        Optional<User> user = userRepository.findById(id);
-//        user.ifPresentOrElse(u -> u.addAdvert(advert), () -> throwError(id));
+        User user = userRepository.findById(id).get();
+        user.addAdvert(advert);
 
         return advert;
     }
@@ -76,7 +77,17 @@ public class UserServiceImpl implements UserService {
         Advert advert = advertRepository.findById(advertId).get();
         User userTaker = userRepository.findById(userId).get();
         advert.setTaker(userTaker);
-        advert.setOrdered(true);
+        advert.setStatus(AdvertStatus.BOOKED);
+
+        return advert;
+    }
+
+    @Override
+    public Advert acceptBookingAdvert(Long userId, Long advertId) {
+        Advert advert = advertRepository.findById(advertId).get();
+        User taker = userRepository.findById(advert.getTaker().getId()).get();
+        advert.setStatus(AdvertStatus.ORDERED);
+        taker.addTookAdvert(advert);
 
         return advert;
     }

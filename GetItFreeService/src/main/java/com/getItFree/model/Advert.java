@@ -21,7 +21,8 @@ public class Advert {
     private String content;
     private Date date;
     private String imageUrl;
-    private boolean ordered;
+    @Enumerated(EnumType.STRING)
+    private AdvertStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "giver_id")

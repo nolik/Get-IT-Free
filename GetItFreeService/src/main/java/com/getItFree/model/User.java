@@ -60,6 +60,12 @@ public class User implements UserDetails, Serializable {
     )
     private List<Advert> tookAdverts;
 
+    public Advert addTookAdvert(Advert advert) {
+        tookAdverts.add(advert);
+
+        return advert;
+    }
+
     //way to avoid of creation separate Authority instance in db
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

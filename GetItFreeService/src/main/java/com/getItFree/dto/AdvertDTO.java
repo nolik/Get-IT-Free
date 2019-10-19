@@ -1,5 +1,6 @@
 package com.getItFree.dto;
 
+import com.getItFree.model.AdvertStatus;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,5 +12,5 @@ public class AdvertDTO {
     private String content;
     private Date date;
     private String imageUrl;
-    private boolean ordered;
+    private AdvertStatus status;
 }

@@ -70,6 +70,14 @@ public class UserController {
         return modelMapper.map(userService.bookAdvert(userId, advertId), AdvertDTO.class);
     }
 
+    @PutMapping("/users/{userId}/adverts/{advertId}/accept-book")
+    public AdvertDTO acceptBookingAdvert(
+            @PathVariable Long userId,
+            @PathVariable Long advertId) {
+
+        return modelMapper.map(userService.acceptBookingAdvert(userId, advertId), AdvertDTO.class);
+    }
+
     @RequestMapping(method = POST, value = "/signup")
     public ResponseEntity<?> addUser(@RequestBody User userRequest,
                                      UriComponentsBuilder ucBuilder) {
