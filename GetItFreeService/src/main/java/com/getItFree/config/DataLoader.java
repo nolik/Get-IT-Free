@@ -47,10 +47,10 @@ public class DataLoader implements ApplicationRunner {
         //temporary initialization of db
         List<Advert> adverts = new ArrayList<>();
         adverts.add(Advert.builder()
-                .head("пивко")
-                .content("забирай добрый люд пивко")
+                .head("Кружечка")
+                .content("Урвал на хакатоне")
                 .date(Calendar.getInstance().getTime())
-                .imageUrl("https://thumb9.shutterstock.com/display_pic_with_logo/3521228/391005625/stock-photo-glasses-of-light-and-dark-beer-on-a-pub-background-391005625.jpg")
+                .imageUrl("https://i.postimg.cc/vT4hPVtC/krujka.jpg")
                 .status(AdvertStatus.FREE)
                 .price(2)
                 .giver(users.get(0))
@@ -58,25 +58,38 @@ public class DataLoader implements ApplicationRunner {
         );
 
         adverts.add(Advert.builder()
-                .head("книга")
-                .content("читайте это сами")
+                .head("Крест Торрето")
+                .content("Снял с живого Доменика")
                 .date(Calendar.getInstance().getTime())
-                .imageUrl("https://img.labirint.ru/rcimg/c4479c18a3792f2e950a6991966f1728/1920x1080/comments_pic/1507/0_1bdb2b488034b1e5d38d6c277796284b_1423810840.jpg")
+                .imageUrl("https://i.postimg.cc/VkCTf3M2/krest.jpg")
                 .status(AdvertStatus.FREE)
                 .price(1)
                 .giver(users.get(1))
                 .build()
 
         );
+
         adverts.add(Advert.builder()
-                .head("камод")
-                .content("нужен кому камод")
+                .head("Штанцы")
+                .content("Отрываю от души")
                 .date(Calendar.getInstance().getTime())
-                .imageUrl("https://images.by.prom.st/97629736_w640_h640_img_20180105_164532.jpg")
+                .imageUrl("https://i.postimg.cc/LXP4pyDT/shtanci.jpg")
                 .status(AdvertStatus.FREE)
                 .price(1)
                 .giver(users.get(1))
                 .build());
+
+        adverts.add(Advert.builder()
+                .head("Игра мафия")
+                .content("Отдам игру в добрые руки")
+                .date(Calendar.getInstance().getTime())
+                .imageUrl("https://i.postimg.cc/zG8tNVzH/mafia.jpg")
+                .status(AdvertStatus.FREE)
+                .price(1)
+                .giver(users.get(1))
+                .build());
+
+
 
         adverts.forEach(advertRepository::save);
 
