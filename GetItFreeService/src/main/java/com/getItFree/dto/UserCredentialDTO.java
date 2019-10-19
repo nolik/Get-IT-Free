@@ -10,5 +10,6 @@ public class UserCredentialDTO {
     private Long id;
     private String username;
     private String password;
+    private Integer karma;
     private List<Authority> authority;
 }
