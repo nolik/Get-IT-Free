@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,6 +21,8 @@ public class Advert {
     private String head;
     private String content;
     private Date date;
+    @Range(min = 1, max = 5)
+    private Integer price;
     private String imageUrl;
     @Enumerated(EnumType.STRING)
     private AdvertStatus status;

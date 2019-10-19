@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,6 +31,9 @@ public class User implements UserDetails, Serializable {
     private String username;
     private String password;
     private String phone;
+    @Range(min = 1)
+    @Builder.Default
+    private Integer karma = 1;
 
     @Email
     private String email;

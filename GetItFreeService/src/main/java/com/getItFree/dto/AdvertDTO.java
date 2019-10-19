@@ -12,5 +12,6 @@ public class AdvertDTO {
     private String content;
     private Date date;
     private String imageUrl;
+    private Integer price;
     private AdvertStatus status;
 }

@@ -9,6 +9,7 @@ public class UserDTO {
     private Long id;
     private String username;
     private String phone;
+    private Integer karma;
     private List<AdvertDTO> adverts;
     private List<AdvertDTO> tookAdverts;
 }
