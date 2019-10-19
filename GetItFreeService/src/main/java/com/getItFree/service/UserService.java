@@ -19,4 +19,6 @@ public interface UserService {
     User save(User user);
 
     Advert addAdvert(Long userID, Advert advert);
+
+    List<Advert> findAllUserAdverst(Long userId);
 }

@@ -5,6 +5,7 @@ import com.getItFree.model.Advert;
 import com.getItFree.model.User;
 import com.getItFree.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -30,7 +32,19 @@ public class UserController {
         return this.userService.findById(userId);
     }
 
-    @PostMapping("/user/{userId}/add-advert")
+    @GetMapping("/users")
+    public List<User> findAllUsers() {
+        return userService.findAll();
+    }
+
+    @GetMapping("/users/{userId}/adverts")
+    public List<Advert> findAllUserAdverts(
+            @PathVariable Long userId) {
+
+        return userService.findAllUserAdverst(userId);
+    }
+
+    @PostMapping("/users/{userId}/add-advert")
     public Advert addAdvert(
             @PathVariable Long userId,
             @RequestBody Advert advert){

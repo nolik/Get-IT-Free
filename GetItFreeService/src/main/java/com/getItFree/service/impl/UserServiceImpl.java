@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<User> findAll() throws AccessDeniedException {
         List<User> result = userRepository.findAll();
         return result;
@@ -72,5 +73,13 @@ public class UserServiceImpl implements UserService {
 
     private void throwError(Long id) {
         throw new RuntimeException("Not found " + id);
+    }
+
+    @Override
+    public List<Advert> findAllUserAdverst(Long userId) {
+
+        return userRepository.findById(userId)
+                .map(User::getAdverts)
+                .orElse(Collections.emptyList());
     }
 }

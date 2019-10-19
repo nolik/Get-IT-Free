@@ -2,6 +2,7 @@ package com.getItFree.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements UserDetails, Serializable {
@@ -36,7 +38,7 @@ public class User implements UserDetails, Serializable {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<Authority> authority;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Advert> adverts;
 
     public Advert addAdvert(Advert advert) {
