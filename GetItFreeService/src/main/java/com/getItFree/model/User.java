@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -38,8 +39,9 @@ public class User implements UserDetails, Serializable {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<Authority> authority;
+
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Advert> adverts;
+    private List<Advert> adverts = new ArrayList<>();
 
     public Advert addAdvert(Advert advert) {
         adverts.add(advert);

@@ -1,17 +1,13 @@
 package com.getItFree.model;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Created by nolik on 03.07.17.
- */
+import javax.persistence.*;
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

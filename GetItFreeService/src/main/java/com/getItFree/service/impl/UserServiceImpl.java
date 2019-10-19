@@ -13,11 +13,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 @Transactional
@@ -66,7 +64,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Advert addAdvert(Long id, Advert advert) {
         Optional<User> user = userRepository.findById(id);
-        user.ifPresentOrElse(u -> u.addAdvert(advert), () -> throwError(id));
+//        user.ifPresentOrElse(u -> u.addAdvert(advert), () -> throwError(id));
 
         return advert;
     }

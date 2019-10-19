@@ -1,11 +1,13 @@
 package com.getItFree.controllers;
 
+import com.getItFree.dto.UserDTO;
 import com.getItFree.exception.ResourceConflictException;
 import com.getItFree.model.Advert;
 import com.getItFree.model.User;
 import com.getItFree.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.validator.constraints.Range;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -26,6 +27,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class UserController {
 
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
     @RequestMapping(method = GET, value = "/user/{userId}")
     public User loadById(@PathVariable Long userId) {
@@ -61,15 +63,16 @@ public class UserController {
             throw new ResourceConflictException(userRequest.getId(), "Username already exists");
         }
         User user = this.userService.save(userRequest);
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setLocation(ucBuilder.path("/api/user/{userId}").buildAndExpand(user.getId()).toUri());
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/api/user/{userId}").buildAndExpand(user.getId()).toUri());
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @RequestMapping("/get-user-info")
     @PreAuthorize("hasRole('USER')")
-    public User user() {
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public UserDTO user() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return modelMapper.map(user, UserDTO.class);
     }
 
 }
